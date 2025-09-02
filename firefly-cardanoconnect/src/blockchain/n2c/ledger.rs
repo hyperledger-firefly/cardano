@@ -336,7 +336,7 @@ fn map_post_alonzo_value(v: &Value) -> conway::Value {
     }
 }
 
-fn map_datum(d: &DatumOption) -> Result<KeepRaw<'static, conway::DatumOption>> {
+fn map_datum(d: &DatumOption) -> Result<KeepRaw<'static, conway::DatumOption<'_>>> {
     let datum = match d {
         DatumOption::Hash(hash) => conway::DatumOption::Hash(*hash),
         DatumOption::Data(data) => {
@@ -348,7 +348,9 @@ fn map_datum(d: &DatumOption) -> Result<KeepRaw<'static, conway::DatumOption>> {
     Ok(datum.into())
 }
 
-fn map_script_ref(r: &CborWrap<PseudoScript<NativeScript>>) -> Result<CborWrap<conway::ScriptRef>> {
+fn map_script_ref(
+    r: &CborWrap<PseudoScript<NativeScript>>,
+) -> Result<CborWrap<conway::ScriptRef<'_>>> {
     let bytes = minicbor::to_vec(&r.0)?;
     let script_ref: conway::ScriptRef = minicbor::decode(&bytes)?;
     let static_script_ref: conway::ScriptRef<'static> = match script_ref {

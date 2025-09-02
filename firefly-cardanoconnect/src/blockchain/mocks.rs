@@ -111,7 +111,7 @@ impl MockChain {
         }
     }
 
-    async fn read_lock(&self) -> RwLockReadGuard<Vec<BlockInfo>> {
+    async fn read_lock(&self) -> RwLockReadGuard<'_, Vec<BlockInfo>> {
         self.chain.read().await
     }
 

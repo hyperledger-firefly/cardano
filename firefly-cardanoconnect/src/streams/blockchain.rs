@@ -1,6 +1,7 @@
 use std::{
     collections::{HashMap, VecDeque},
     fmt::Debug,
+    slice,
     sync::Arc,
 };
 
@@ -255,7 +256,7 @@ impl ChainListenerImpl {
     ) -> Result<Self> {
         let mut sync = chain.sync().await?;
         let start = if let Some(block_ref) = &from {
-            let (Some(head), _) = sync.find_intersect(&[block_ref.clone()]).await? else {
+            let (Some(head), _) = sync.find_intersect(slice::from_ref(block_ref)).await? else {
                 // Trying to init a fresh listener from a ref which does not exist
                 bail!("could not start listening from {from:?}, as it does not exist on-chain");
             };
@@ -264,7 +265,7 @@ impl ChainListenerImpl {
             // Otherwise, they just want to follow from the tip
             let (_, tip) = sync.find_intersect(&[]).await?;
             // Call find_intersect again so the chainsync protocol knows we're following from the tip
-            let (head, _) = sync.find_intersect(&[tip.clone()]).await?;
+            let (head, _) = sync.find_intersect(slice::from_ref(&tip)).await?;
             if !head.is_some_and(|h| h == tip) {
                 bail!(
                     "could not start listening from latest: rollback occurred while we were connecting"

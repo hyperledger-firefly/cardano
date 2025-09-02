@@ -129,10 +129,10 @@ impl ContractManager {
     }
 
     async fn get_contract_runtime(&self, contract: &str) -> ContractRuntime {
-        if !self.runtimes.contains_key(contract) {
-            if let Err(error) = self.init_contract_runtime(contract).await {
-                warn!("Could not init contract {contract}: {error}");
-            }
+        if !self.runtimes.contains_key(contract)
+            && let Err(error) = self.init_contract_runtime(contract).await
+        {
+            warn!("Could not init contract {contract}: {error}");
         }
         self.runtimes.get(contract).unwrap().clone()
     }
