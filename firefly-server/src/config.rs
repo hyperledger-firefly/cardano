@@ -18,16 +18,16 @@ where
         .merge(Yaml::string(defaults))
         .merge(default_config_source("/etc/firefly", suffix));
 
-    if let Some(dir) = home::home_dir() {
-        if let Some(firefly_dir) = dir.join(".firefly").to_str() {
-            config = config.merge(default_config_source(firefly_dir, suffix));
-        }
+    if let Some(dir) = home::home_dir()
+        && let Some(firefly_dir) = dir.join(".firefly").to_str()
+    {
+        config = config.merge(default_config_source(firefly_dir, suffix));
     }
 
-    if let Ok(cwd) = std::env::current_dir() {
-        if let Some(cwd_str) = cwd.to_str() {
-            config = config.merge(default_config_source(cwd_str, suffix));
-        }
+    if let Ok(cwd) = std::env::current_dir()
+        && let Some(cwd_str) = cwd.to_str()
+    {
+        config = config.merge(default_config_source(cwd_str, suffix));
     }
 
     for file in config_files {
