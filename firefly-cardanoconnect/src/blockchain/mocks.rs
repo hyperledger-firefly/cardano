@@ -3,7 +3,7 @@ use std::{sync::Arc, time::Duration};
 use anyhow::Result;
 use async_trait::async_trait;
 use dashmap::DashMap;
-use rand::{Rng as _, SeedableRng as _};
+use rand::{RngExt as _, SeedableRng as _};
 use rand_chacha::ChaChaRng;
 use tokio::{
     sync::{Notify, RwLock, RwLockReadGuard},
