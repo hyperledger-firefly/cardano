@@ -29,7 +29,7 @@ plugins:
   - cardano:
       cardanoconnect:
         topic: "0"
-        url: http://firefly-cardanoconnect:5018
+        url: http://localhost:5018
     name: blockchain0
     type: cardano
   database:

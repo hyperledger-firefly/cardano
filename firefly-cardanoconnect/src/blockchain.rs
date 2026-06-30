@@ -6,6 +6,7 @@ use crate::{
 };
 use anyhow::{Result, bail};
 use async_trait::async_trait;
+use balius_core::proto::v0::cardano::PParams;
 use balius_runtime::ledgers::{
     Ledger, LedgerError, LedgerProvider, TxoRef, Utxo, UtxoPage, UtxoPattern,
 };
@@ -16,7 +17,6 @@ use pallas_primitives::conway::Tx;
 use pallas_traverse::wellknown::GenesisValues;
 use serde::Deserialize;
 use tokio::sync::{Mutex, RwLock};
-use utxorpc_spec::utxorpc::v1alpha::cardano::PParams;
 
 mod blockfrost;
 pub mod mocks;

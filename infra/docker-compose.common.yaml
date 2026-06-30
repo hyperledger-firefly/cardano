@@ -1,16 +1,12 @@
 services:
   firefly-core:
-    image: ghcr.io/hyperledger/firefly:v1.3.3-20250523-823
+    image: ghcr.io/hyperledger-firefly/firefly:v1.4.0-20260414-840
     volumes:
       - ./firefly-core.yaml:/etc/firefly/firefly.core.yml:ro
     ports:
       - 5000:5000
       - 5101:5101
     depends_on:
-      firefly-cardanoconnect:
-          condition: service_started
-      firefly-cardanosigner:
-          condition: service_started
       postgres:
           condition: service_healthy
     healthcheck:

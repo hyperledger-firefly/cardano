@@ -12,19 +12,21 @@ aide = { version = "0.14", features = ["axum", "axum-json", "axum-query"] }
 anyhow = "1"
 async-trait = "0.1"
 axum = { version = "0.8", features = ["macros", "ws"] }
-balius-runtime = { git = "https://github.com/txpipe/balius", rev = "3f39b1a", default-features = false, features = ["rustls-tls"] }
-blockfrost = { git = "https://github.com/blockfrost/blockfrost-rust.git", rev = "1877c38", default-features = false, features = ["rustls-tls"] }
+balius-core = { git = "https://github.com/txpipe/balius", rev = "528ca26" }
+balius-runtime = { git = "https://github.com/txpipe/balius", rev = "528ca26" }
+blockfrost = { version = "1", default-features = false, features = ["rustls-tls"] }
 blockfrost-openapi = "0.1.69"
 clap = { version = "4", features = ["derive"] }
 chrono = "0.4"
 dashmap = "6"
 futures = "0.3"
-pallas-addresses = "1.0.0-alpha.2"
-pallas-codec = "1.0.0-alpha.2"
-pallas-crypto = "1.0.0-alpha.2"
-pallas-primitives = "1.0.0-alpha.2"
-pallas-network = "1.0.0-alpha.2"
-pallas-traverse = "1.0.0-alpha.2"
+pallas-addresses = "1"
+pallas-codec = "1"
+pallas-crypto = "1"
+pallas-primitives = "1"
+pallas-network = "1"
+pallas-traverse = "1"
+pallas-utxorpc = "1"
 firefly-server = { path = "../firefly-server" }
 hex = "0.4"
 minicbor = "0.26"
@@ -42,4 +44,4 @@ tokio = { version = "1", features = ["full"] }
 tokio-rusqlite = { version = "0.6" }
 tracing = "0.1"
 ulid = "1"
-utxorpc-spec = "0.15"
+utxorpc-spec = "0.18"

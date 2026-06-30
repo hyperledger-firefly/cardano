@@ -24,6 +24,7 @@ impl UtxorpcAdapter {
         let block = cardano::Block {
             header: Some(header),
             body: Some(body),
+            timestamp: 0,
         };
         Ok(balius_runtime::Block::Cardano(block))
     }
@@ -146,17 +147,18 @@ fn convert_txo(real_output: &conway::TransactionOutput) -> cardano::TxOutput {
             }
             match &txo.amount {
                 alonzo::Value::Coin(c) => {
-                    output.coin = *c;
+                    output.coin = Some(to_bigint(*c));
                 }
                 alonzo::Value::Multiasset(c, assets) => {
-                    output.coin = *c;
+                    output.coin = Some(to_bigint(*c));
                     for (policy_id, policy_assets) in assets.iter() {
                         let assets = policy_assets
                             .iter()
                             .map(|(name, amount)| cardano::Asset {
                                 name: name.to_vec().into(),
-                                output_coin: *amount,
-                                ..cardano::Asset::default()
+                                quantity: Some(cardano::asset::Quantity::OutputCoin(to_bigint(
+                                    *amount,
+                                ))),
                             })
                             .collect();
                         output.assets.push(cardano::Multiasset {
@@ -187,17 +189,18 @@ fn convert_txo(real_output: &conway::TransactionOutput) -> cardano::TxOutput {
             }
             match &txo.value {
                 conway::Value::Coin(c) => {
-                    output.coin = *c;
+                    output.coin = Some(to_bigint(*c));
                 }
                 conway::Value::Multiasset(c, assets) => {
-                    output.coin = *c;
+                    output.coin = Some(to_bigint(*c));
                     for (policy_id, policy_assets) in assets.iter() {
                         let assets = policy_assets
                             .iter()
                             .map(|(name, amount)| cardano::Asset {
                                 name: name.to_vec().into(),
-                                output_coin: amount.into(),
-                                ..cardano::Asset::default()
+                                quantity: Some(cardano::asset::Quantity::OutputCoin(to_bigint(
+                                    amount.into(),
+                                ))),
                             })
                             .collect();
                         output.assets.push(cardano::Multiasset {
@@ -244,4 +247,9 @@ fn convert_tx(bytes: &[u8]) -> cardano::Tx {
         tx.outputs.push(convert_txo(real_output));
     }
     tx
+}
+fn to_bigint(value: u64) -> cardano::BigInt {
+    cardano::BigInt {
+        big_int: Some(cardano::big_int::BigInt::Int(value as i64)),
+    }
 }

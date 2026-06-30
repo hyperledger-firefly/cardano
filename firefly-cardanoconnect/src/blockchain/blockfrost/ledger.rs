@@ -5,15 +5,15 @@ use std::{
 
 use anyhow::Result;
 use async_trait::async_trait;
+use balius_core::proto::v0::cardano::{
+    CostModel, CostModels, ExPrices, ExUnits, PParams, ProtocolVersion, RationalNumber,
+    VotingThresholds,
+};
 use balius_runtime::ledgers::{LedgerError, TxoRef, Utxo, UtxoPage};
 use blockfrost::Pagination;
 use num_rational::Rational32;
 use num_traits::FromPrimitive as _;
 use pallas_traverse::MultiEraTx;
-use utxorpc_spec::utxorpc::v1alpha::cardano::{
-    CostModel, CostModels, ExPrices, ExUnits, PParams, ProtocolVersion, RationalNumber,
-    VotingThresholds,
-};
 
 use crate::blockchain::BaliusLedger;
 
