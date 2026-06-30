@@ -9,6 +9,7 @@ use balius_runtime::{
     ChainPoint, Response, Runtime, Store,
     kv::{Kv, KvError, KvProvider},
     ledgers::Ledger,
+    store::redb,
 };
 use serde::{Deserialize, Serialize, de::DeserializeOwned};
 use serde_json::{Value, json};
@@ -255,9 +256,10 @@ impl ContractRuntimeWorker {
             bail!("Missing contract configuration")
         };
 
-        let store =
-            tokio::task::spawn_blocking(move || Store::open(&config.store_path, config.cache_size))
-                .await??;
+        let store = tokio::task::spawn_blocking(move || {
+            redb::Store::open(&config.store_path, config.cache_size).map(Store::Redb)
+        })
+        .await??;
         let mut runtime_builder = Runtime::builder(store);
         if let Some(ledger) = self.ledger.clone() {
             runtime_builder = runtime_builder.with_ledger(ledger);
@@ -273,7 +275,7 @@ impl ContractRuntimeWorker {
 
         let head = match runtime.chain_cursor().await {
             Ok(Some(ChainPoint::Cardano(r))) => {
-                BlockReference::Point(Some(r.index), hex::encode(r.hash))
+                BlockReference::Point(Some(r.slot), hex::encode(r.hash))
             }
             _ => BlockReference::Origin,
         };
