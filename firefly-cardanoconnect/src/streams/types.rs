@@ -58,15 +58,11 @@ pub struct StreamCheckpoint {
     pub listeners: BTreeMap<ListenerId, EventReference>,
 }
 
-#[derive(Clone, Debug, Hash, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, Hash, PartialEq, Eq, Serialize, Deserialize)]
 pub enum BlockReference {
+    #[default]
     Origin,
     Point(Option<u64>, String),
-}
-impl Default for BlockReference {
-    fn default() -> Self {
-        Self::Origin
-    }
 }
 impl PartialOrd for BlockReference {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
