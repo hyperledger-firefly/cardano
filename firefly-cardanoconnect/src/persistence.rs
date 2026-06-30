@@ -15,17 +15,12 @@ use crate::{
 mod mocks;
 mod sqlite;
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Default)]
 #[serde(rename_all = "camelCase", tag = "type")]
 pub enum PersistenceConfig {
+    #[default]
     Mock,
     Sqlite(SqliteConfig),
-}
-
-impl Default for PersistenceConfig {
-    fn default() -> Self {
-        Self::Mock
-    }
 }
 
 #[async_trait]
