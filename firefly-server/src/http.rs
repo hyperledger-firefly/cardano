@@ -1,7 +1,7 @@
 use std::time::Duration;
 
 use anyhow::Result;
-use duration_str::deserialize_option_duration;
+use duration_str::deserialize_duration;
 use reqwest::{Client, IntoUrl};
 use serde::{Deserialize, Serialize, de::DeserializeOwned};
 
@@ -10,9 +10,9 @@ use crate::apitypes::{ApiError, ApiResult};
 #[derive(Debug, Default, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct HttpClientConfig {
-    #[serde(deserialize_with = "deserialize_option_duration")]
+    #[serde(deserialize_with = "deserialize_duration")]
     pub connection_timeout: Option<Duration>,
-    #[serde(deserialize_with = "deserialize_option_duration")]
+    #[serde(deserialize_with = "deserialize_duration")]
     pub request_timeout: Option<Duration>,
 }
 

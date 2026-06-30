@@ -1,6 +1,6 @@
 use anyhow::{Result, bail};
 use reqwest::{Client, Response};
-use reqwest_websocket::{Message, RequestBuilderExt, WebSocket};
+use reqwest_websocket::{Message, Upgrade as _, WebSocket};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
