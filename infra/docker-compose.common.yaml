@@ -7,6 +7,10 @@ services:
       - 5000:5000
       - 5101:5101
     depends_on:
+      firefly-cardanoconnect:
+          condition: service_started
+      firefly-cardanosigner:
+          condition: service_started
       postgres:
           condition: service_healthy
     healthcheck:
