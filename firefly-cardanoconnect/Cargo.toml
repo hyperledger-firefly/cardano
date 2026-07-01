@@ -5,7 +5,7 @@ description = "An implementation of the FireFly Connector API for Cardano"
 license-file.workspace = true
 publish = false
 edition = "2024"
-repository = "https://github.com/hyperledger/firefly-cardano"
+repository = "https://github.com/hyperledger-firefly/cardano"
 
 [dependencies]
 aide = { version = "0.15", features = ["axum", "axum-json", "axum-query"] }

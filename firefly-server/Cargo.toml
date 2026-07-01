@@ -5,7 +5,7 @@ description = "Internal library with shared code for services"
 license-file.workspace = true
 publish = false
 edition = "2024"
-repository = "https://github.com/hyperledger/firefly-cardano"
+repository = "https://github.com/hyperledger-firefly/cardano"
 
 [dependencies]
 aide = { version = "0.15", features = ["axum", "axum-json"] }

@@ -5,7 +5,7 @@ description = "A script to easily generate Cardano addresses"
 license-file.workspace = true
 publish = false
 edition = "2024"
-repository = "https://github.com/hyperledger/firefly-cardano"
+repository = "https://github.com/hyperledger-firefly/cardano"
 
 [dependencies]
 anyhow = "1"

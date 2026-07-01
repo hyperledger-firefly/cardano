@@ -1,1 +1,1 @@
-See https://github.com/hyperledger/firefly/blob/main/SECURITY.md
+See https://github.com/hyperledger-firefly/firefly/blob/main/SECURITY.md

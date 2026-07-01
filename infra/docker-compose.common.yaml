@@ -40,7 +40,7 @@ services:
         retries: 12
 
   firefly-cardanosigner:
-    image: ghcr.io/hyperledger/firefly-cardanosigner:main
+    image: ghcr.io/hyperledger-firefly/cardanosigner:main
     build:
       context: ..
       target: firefly-cardanosigner
