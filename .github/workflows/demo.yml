@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Add wallet secret
         run: mkdir ./infra/wallet ; echo '${{ secrets.DEMO_WALLET }}' > ./infra/wallet/addr_test1vqhkukz0285zvk0xrwk9jlq0075tx6furuzcjvzpnhtgelsuhhqc4.skey
       - name: Start docker-compose
