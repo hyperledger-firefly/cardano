@@ -1,5 +1,5 @@
 log:
-  level: debug
+  level: info
 connector:
   signerUrl: http://firefly-cardanosigner:8555
   blockchain:
