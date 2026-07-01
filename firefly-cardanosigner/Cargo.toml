@@ -5,7 +5,7 @@ description = "A service managing keys and signing for the FireFly Cardano conne
 license-file.workspace = true
 publish = false
 edition = "2024"
-repository = "https://github.com/hyperledger/firefly-cardano"
+repository = "https://github.com/hyperledger-firefly/cardano"
 
 [dependencies]
 aide = { version = "0.15", features = ["axum", "axum-json"] }

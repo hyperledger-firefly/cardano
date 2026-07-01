@@ -5,7 +5,7 @@ description = "A script to build and deploy a Balius-backed API to FireFly"
 license-file.workspace = true
 publish = false
 edition = "2024"
-repository = "https://github.com/hyperledger/firefly-cardano"
+repository = "https://github.com/hyperledger-firefly/cardano"
 
 [dependencies]
 anyhow = "1"

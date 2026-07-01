@@ -29,7 +29,7 @@ services:
         condition: service_completed_successfully
 
   firefly-cardanoconnect:
-    image: ghcr.io/hyperledger/firefly-cardanoconnect:main
+    image: ghcr.io/hyperledger-firefly/cardanoconnect:main
     build:
       context: ..
       target: firefly-cardanoconnect
