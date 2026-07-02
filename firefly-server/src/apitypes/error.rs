@@ -104,6 +104,6 @@ pub trait ToAnyhow {
 impl<T> ToAnyhow for ApiResult<T> {
     type Success = T;
     fn to_anyhow(self) -> Result<Self::Success, anyhow::Error> {
-        self.map_err(|err| anyhow::anyhow!("{}", err.to_string()))
+        self.map_err(|err| anyhow::anyhow!("{err}"))
     }
 }

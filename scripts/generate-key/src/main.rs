@@ -5,7 +5,7 @@ use bech32::{Bech32, Hrp};
 use clap::Parser;
 use pallas_crypto::{hash::Hasher, key::ed25519::SecretKey};
 use pallas_primitives::BoundedBytes;
-use rand::thread_rng;
+use rand::rng;
 use serde::Serialize;
 
 #[derive(Parser)]
@@ -33,7 +33,7 @@ fn encode_address(public_key: &[u8], header: u8, hrp: &Hrp) -> Result<String> {
 }
 
 fn generate_signing_key(testnet: bool) -> Result<(String, SigningKeyContents)> {
-    let mut rand = thread_rng();
+    let mut rand = rng();
     let private = SecretKey::new(&mut rand);
 
     let (header, hrp) = if testnet {

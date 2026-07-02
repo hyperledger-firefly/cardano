@@ -1,6 +1,6 @@
 services:
   firefly-core:
-    image: ghcr.io/hyperledger/firefly:v1.3.3-20250523-823
+    image: ghcr.io/hyperledger-firefly/firefly:v1.4.0-20260414-840
     volumes:
       - ./firefly-core.yaml:/etc/firefly/firefly.core.yml:ro
     ports:
@@ -40,7 +40,7 @@ services:
         retries: 12
 
   firefly-cardanosigner:
-    image: ghcr.io/hyperledger/firefly-cardanosigner:main
+    image: ghcr.io/hyperledger-firefly/cardanosigner:main
     build:
       context: ..
       target: firefly-cardanosigner

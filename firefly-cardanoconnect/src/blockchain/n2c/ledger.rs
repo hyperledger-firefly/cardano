@@ -2,6 +2,9 @@ use std::collections::BTreeMap;
 
 use anyhow::Result;
 use async_trait::async_trait;
+use balius_core::proto::v0::cardano::{
+    CostModel, CostModels, ExPrices, ExUnits, PParams, ProtocolVersion, VotingThresholds,
+};
 use balius_runtime::ledgers::{TxoRef, Utxo, UtxoPage};
 use pallas_codec::utils::CborWrap;
 use pallas_network::{
@@ -18,9 +21,6 @@ use pallas_network::{
     },
 };
 use pallas_primitives::{KeepRaw, PositiveCoin, alonzo, conway};
-use utxorpc_spec::utxorpc::v1alpha::cardano::{
-    CostModel, CostModels, ExPrices, ExUnits, PParams, ProtocolVersion, VotingThresholds,
-};
 
 use crate::{blockchain::BaliusLedger, utils::LazyInit};
 
@@ -362,8 +362,8 @@ fn map_script_ref(
     Ok(CborWrap(static_script_ref))
 }
 
-fn map_rational(r: RationalNumber) -> utxorpc_spec::utxorpc::v1alpha::cardano::RationalNumber {
-    utxorpc_spec::utxorpc::v1alpha::cardano::RationalNumber {
+fn map_rational(r: RationalNumber) -> balius_core::proto::v0::cardano::RationalNumber {
+    balius_core::proto::v0::cardano::RationalNumber {
         numerator: r.numerator as i32,
         denominator: r.denominator as u32,
     }

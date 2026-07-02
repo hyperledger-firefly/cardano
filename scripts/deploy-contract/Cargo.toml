@@ -5,15 +5,15 @@ description = "A script to build and deploy a Balius smart contract to the FireF
 license-file.workspace = true
 publish = false
 edition = "2024"
-repository = "https://github.com/hyperledger/firefly-cardano"
+repository = "https://github.com/hyperledger-firefly/cardano"
 
 [dependencies]
 anyhow = "1"
 clap = { version = "4", features = ["derive"] }
 hex = "0.4"
-reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+reqwest = { version = "0.13", default-features = false, features = ["json", "rustls"] }
 serde = { version = "1", features = ["derive"] }
 tokio = { version = "1", features = ["full"] }
 uuid = { version = "1", features = ["v4"] }
 wat = "1"
-wit-component = "0.223"
+wit-component = "0.252"
