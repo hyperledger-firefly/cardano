@@ -44,4 +44,4 @@ tokio = { version = "1", features = ["full"] }
 tokio-rusqlite = { version = "0.7" }
 tracing = "0.1"
 ulid = "1"
-utxorpc-spec = "0.18"
+utxorpc-spec = "0.19"
