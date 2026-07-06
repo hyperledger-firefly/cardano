@@ -14,7 +14,7 @@ anyhow = "1"
 clap = { version = "4", features = ["derive"] }
 firefly-server = { path = "../firefly-server" }
 hex = "0.4"
-minicbor = "0.26"
+minicbor = "2.2"
 pallas-addresses = "1"
 pallas-crypto = "1"
 pallas-primitives = "1"
