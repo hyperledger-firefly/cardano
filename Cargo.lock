@@ -1274,7 +1274,7 @@ dependencies = [
  "refinery",
  "reqwest 0.13.4",
  "rusqlite",
- "schemars 0.9.0",
+ "schemars 1.2.1",
  "serde",
  "serde_json",
  "tokio",
@@ -1298,7 +1298,7 @@ dependencies = [
  "pallas-addresses",
  "pallas-crypto",
  "pallas-primitives",
- "schemars 0.9.0",
+ "schemars 1.2.1",
  "serde",
  "serde_json",
  "tokio",
@@ -1318,7 +1318,7 @@ dependencies = [
  "home",
  "itertools 0.15.0",
  "reqwest 0.13.4",
- "schemars 0.9.0",
+ "schemars 1.2.1",
  "serde",
  "serde_json",
  "tokio",
@@ -3586,7 +3586,7 @@ dependencies = [
  "dyn-clone",
  "indexmap 2.14.0",
  "ref-cast",
- "schemars_derive",
+ "schemars_derive 0.9.0",
  "serde",
  "serde_json",
 ]
@@ -3599,6 +3599,7 @@ checksum = "a2b42f36aa1cd011945615b92222f6bf73c599a102a300334cd7f8dbeec726cc"
 dependencies = [
  "dyn-clone",
  "ref-cast",
+ "schemars_derive 1.2.1",
  "serde",
  "serde_json",
 ]
@@ -3608,6 +3609,18 @@ name = "schemars_derive"
 version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5016d94c77c6d32f0b8e08b781f7dc8a90c2007d4e77472cc2807bc10a8438fe"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "serde_derive_internals",
+ "syn",
+]
+
+[[package]]
+name = "schemars_derive"
+version = "1.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7d115b50f4aaeea07e79c1912f645c7513d81715d0420f8bc77a18c6260b307f"
 dependencies = [
  "proc-macro2",
  "quote",
