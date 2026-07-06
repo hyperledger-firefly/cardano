@@ -8,15 +8,15 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 10
+    ignore:
+      - dependency-name: "minicbor"      # stuck on an older version for compatibility with pallas
+      - dependency-name: "rusqlite"      # stuck on an older version for compatibility with refinery
+      - dependency-name: "schemars"      # stuck on an older version for compatibility with aide
+      - dependency-name: "utxorpc-spec"  # stuck on an older version for compatibility with balius
     groups:
       cargo:
         # Group all non-security version updates into one PR
         applies-to: version-updates
-        exclude-patterns:
-          - "minicbor"      # stuck on an older version for compatibility with pallas
-          - "rusqlite"      # stuck on an older version for compatibility with refinery
-          - "schemars"      # stuck on an older version for compatibility with aide
-          - "utxorpc-spec"  # stuck on an older version for compatibility with balius
         patterns:
           - "*"
       cargo-security:
