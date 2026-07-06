@@ -15,7 +15,7 @@ convert_case = "0.11"
 duration-str = "0.21"
 figment = { version = "0.10", features = ["yaml", "env"] }
 home = "0.5"
-itertools = "0.14"
+itertools = "0.15"
 reqwest = { version = "0.13", default-features = false, features = ["json", "rustls"] }
 schemars = "0.9"
 serde = "1"
