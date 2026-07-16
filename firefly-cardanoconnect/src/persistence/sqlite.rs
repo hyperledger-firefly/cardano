@@ -328,7 +328,7 @@ impl Persistence for SqlitePersistence {
                 let status = op.status.name();
                 let error_message = op.status.error_message();
 
-                let update_id = Ulid::new().to_string();
+                let update_id = Ulid::generate().to_string();
 
                 tx.prepare_cached(
                     "INSERT INTO operations (id, status, error_message, tx_id, contract_address)

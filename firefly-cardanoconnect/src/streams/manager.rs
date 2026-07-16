@@ -40,7 +40,7 @@ impl StreamManager {
         batch_size: usize,
         batch_timeout: Duration,
     ) -> ApiResult<Stream> {
-        let id = Ulid::new().to_string().into();
+        let id = Ulid::generate().to_string().into();
         let stream = Stream {
             id,
             name: name.to_string(),
@@ -106,7 +106,7 @@ impl StreamManager {
                 "Only event listeners are supported",
             ));
         }
-        let id = Ulid::new().to_string().into();
+        let id = Ulid::generate().to_string().into();
         let listener = Listener {
             id,
             name: name.to_string(),
