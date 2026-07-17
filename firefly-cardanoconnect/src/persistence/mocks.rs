@@ -174,7 +174,7 @@ impl Persistence for MockPersistence {
 
     async fn write_operation(&self, op: &Operation) -> ApiResult<OperationUpdateId> {
         self.all_operations.insert(op.id.clone(), op.clone());
-        let update_id: OperationUpdateId = Ulid::new().to_string().into();
+        let update_id: OperationUpdateId = Ulid::generate().to_string().into();
         let update = OperationUpdate {
             update_id: update_id.clone(),
             operation: op.clone(),
