@@ -2,7 +2,7 @@ include:
   - docker-compose.common.yaml
 services:
   init-node:
-    image: ghcr.io/input-output-hk/mithril-client:2617.0-2478748
+    image: ghcr.io/intersectmbo/mithril-client:2617.0-2478748
     entrypoint: /app/bin/entrypoint.sh
     user: "${UID}:${GID}"
     environment:
