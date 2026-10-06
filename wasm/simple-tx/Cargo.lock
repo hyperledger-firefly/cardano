@@ -26,7 +26,7 @@ checksum = "f2032f911046de80f0a198e0901378627c33f59ea0ac00e363d481118bd70a53"
 [[package]]
 name = "balius-core"
 version = "0.5.2"
-source = "git+https://github.com/txpipe/balius?rev=fba749e#fba749eb5dda7406bbcd3512049b47f1a393461b"
+source = "git+https://github.com/txpipe/balius?rev=f24a0fa#f24a0fad48ed46b40820b287d34af58607a62afd"
 dependencies = [
  "bytes",
  "prost",
@@ -37,7 +37,7 @@ dependencies = [
 [[package]]
 name = "balius-macros"
 version = "0.5.2"
-source = "git+https://github.com/txpipe/balius?rev=fba749e#fba749eb5dda7406bbcd3512049b47f1a393461b"
+source = "git+https://github.com/txpipe/balius?rev=f24a0fa#f24a0fad48ed46b40820b287d34af58607a62afd"
 dependencies = [
  "quote",
  "syn 2.0.119",
@@ -46,7 +46,7 @@ dependencies = [
 [[package]]
 name = "balius-sdk"
 version = "0.5.2"
-source = "git+https://github.com/txpipe/balius?rev=fba749e#fba749eb5dda7406bbcd3512049b47f1a393461b"
+source = "git+https://github.com/txpipe/balius?rev=f24a0fa#f24a0fad48ed46b40820b287d34af58607a62afd"
 dependencies = [
  "balius-core",
  "balius-macros",
