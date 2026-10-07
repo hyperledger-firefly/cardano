@@ -340,7 +340,7 @@ dependencies = [
 [[package]]
 name = "balius-core"
 version = "0.5.2"
-source = "git+https://github.com/txpipe/balius?rev=dbe84db#dbe84dbb3170d42f38605140489f8ab4c7de9ead"
+source = "git+https://github.com/txpipe/balius?rev=84b3cf7#84b3cf72fbb8056bc88373a4de589e7aa95cdbcd"
 dependencies = [
  "bytes",
  "prost",
@@ -351,7 +351,7 @@ dependencies = [
 [[package]]
 name = "balius-macros"
 version = "0.5.2"
-source = "git+https://github.com/txpipe/balius?rev=dbe84db#dbe84dbb3170d42f38605140489f8ab4c7de9ead"
+source = "git+https://github.com/txpipe/balius?rev=84b3cf7#84b3cf72fbb8056bc88373a4de589e7aa95cdbcd"
 dependencies = [
  "quote",
  "syn 2.0.119",
@@ -360,7 +360,7 @@ dependencies = [
 [[package]]
 name = "balius-runtime"
 version = "0.5.2"
-source = "git+https://github.com/txpipe/balius?rev=dbe84db#dbe84dbb3170d42f38605140489f8ab4c7de9ead"
+source = "git+https://github.com/txpipe/balius?rev=84b3cf7#84b3cf72fbb8056bc88373a4de589e7aa95cdbcd"
 dependencies = [
  "async-trait",
  "balius-core",
@@ -392,7 +392,7 @@ dependencies = [
 [[package]]
 name = "balius-sdk"
 version = "0.5.2"
-source = "git+https://github.com/txpipe/balius?rev=dbe84db#dbe84dbb3170d42f38605140489f8ab4c7de9ead"
+source = "git+https://github.com/txpipe/balius?rev=84b3cf7#84b3cf72fbb8056bc88373a4de589e7aa95cdbcd"
 dependencies = [
  "balius-core",
  "balius-macros",
