@@ -35,7 +35,7 @@ num-traits = "0.2"
 rand = "0.10"
 rand_chacha = "0.10"
 reqwest = { version = "0.13", default-features = false, features = ["json", "rustls"] }
-refinery = { version = "0.9", features = ["rusqlite"] }
+refinery = { version = "0.10", features = ["rusqlite"] }
 rusqlite = { version = "0.37", features = ["bundled"] }
 schemars = "0.9"
 serde = "1"
