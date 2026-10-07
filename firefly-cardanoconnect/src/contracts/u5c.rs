@@ -112,7 +112,7 @@ fn convert_native_script(script: &conway::NativeScript) -> cardano::NativeScript
         }
         conway::NativeScript::ScriptNOfK(k, scripts) => {
             InnerNativeScript::ScriptNOfK(cardano::ScriptNOfK {
-                k: *k,
+                k: u32::try_from(*k).unwrap_or_default(),
                 scripts: scripts.iter().map(convert_native_script).collect(),
             })
         }
