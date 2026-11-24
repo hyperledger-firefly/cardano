@@ -35,13 +35,13 @@ num-traits = "0.2"
 rand = "0.10"
 rand_chacha = "0.10"
 reqwest = { version = "0.13", default-features = false, features = ["json", "rustls"] }
-refinery = { version = "0.10", features = ["rusqlite"] }
-rusqlite = { version = "0.37", features = ["bundled"] }
+refinery = { version = "0.10", git = "https://github.com/rust-db/refinery", rev = "83664c4", features = ["rusqlite"] }
+rusqlite = { version = "0.43", features = ["bundled", "fallible_uint"] }
 schemars = "0.9"
 serde = "1"
 serde_json = "1"
 tokio = { version = "1", features = ["full"] }
-tokio-rusqlite = { version = "0.7" }
+tokio-rusqlite = { version = "0.10" }
 tracing = "0.1"
 ulid = "3"
 utxorpc-spec = "0.18"
