@@ -10,7 +10,6 @@ updates:
     open-pull-requests-limit: 10
     ignore:
       - dependency-name: "minicbor"      # stuck on an older version for compatibility with pallas
-      - dependency-name: "rusqlite"      # stuck on an older version for compatibility with refinery
       - dependency-name: "schemars"      # stuck on an older version for compatibility with aide
       - dependency-name: "utxorpc-spec"  # stuck on an older version for compatibility with balius
     groups:
